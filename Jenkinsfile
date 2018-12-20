@@ -6,9 +6,9 @@ pipeline {
       steps {
         echo 'Initializing Pipeline'
         echo "Workspace:${WORKSPACE}"
-        def myVar = "Ed"
-        echo "myVarDbl: ${myVar}"
-        echo 'myVarSing: ${myVar}'
+        //def myVar = "Ed"
+        //echo "myVarDbl: ${myVar}"
+        //echo 'myVarSing: ${myVar}'
       }
     }
     stage('Get Params') {
