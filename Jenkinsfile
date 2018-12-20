@@ -32,6 +32,9 @@ pipeline {
       steps {
         echo 'Run PowerShell'
         script {
+          def expol=powershell(script: "Get-ExecutionPolicy", returnStatus: true, returnStdout: true)
+          echo "${expol}"
+
           def file = "\"${WORKSPACE}\\start.ps1\""
           echo "${file}"
           def stat0 = powershell(script: "${file}", returnStatus: true, returnStdout: true)
