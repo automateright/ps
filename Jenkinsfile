@@ -32,9 +32,6 @@ pipeline {
       steps {
         echo 'Run PowerShell'
         script {
-          def expol=powershell(script: "Get-ExecutionPolicy", returnStatus: false, returnStdout: true)
-          echo "${expol}"
-
           def file = "\"${WORKSPACE}\\start.ps1\""
           echo "${file}"
           def stat0 = powershell(script: "${file}", returnStatus: false, returnStdout: true)
@@ -45,11 +42,7 @@ pipeline {
           def stat = powershell(script: "Import-Module -Name ${file2} -Verbose", returnStatus: false, returnStdout: true)
           echo "stat: ${stat}"
 
-          def mods=powershell(script: "Get-Module", returnStatus: false, returnStdout: true)
-          echo "${mods}"
-
-
-          def stat2 = powershell(script: "Ping-Localhost", returnStatus: false, returnStdout: true)
+          def stat2 = powershell(script: "Ping-Localhost asdf", returnStatus: false, returnStdout: true)
           echo "stat2: ${stat2}"
         }
 
