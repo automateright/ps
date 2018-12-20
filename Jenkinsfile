@@ -12,6 +12,12 @@ pipeline {
         stage('Get Params') {
           steps {
             powershell(returnStatus: true, returnStdout: true, script: 'Write-Host "hello world"')
+            script {
+              def name = 'Guillaume' // a plain string
+              def greeting = "Hello ${name}"
+              assert greeting.toString() == 'Hello Guillaume'
+            }
+
           }
         }
         stage('APICall') {
@@ -25,9 +31,6 @@ pipeline {
     stage('Run Powershell') {
       steps {
         echo 'Check Params'
-        echo "${WORKSPACE}\\start.ps1"
-        echo "${file}"
-        powershell(script: "${file}", returnStatus: true, returnStdout: true)
       }
     }
   }
