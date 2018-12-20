@@ -23,7 +23,7 @@ pipeline {
     stage('Run Powershell') {
       steps {
         echo 'Check Params'
-        powershell(script: 'testps.ps1', returnStatus: true, returnStdout: true)
+        powershell(script: 'start.ps1', returnStatus: true, returnStdout: true)
       }
     }
   }
