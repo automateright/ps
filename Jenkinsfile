@@ -31,7 +31,11 @@ pipeline {
     stage('Run Powershell') {
       steps {
         echo 'Check Params'
-        powershell(script: "\"${WORKSPACE}\\start.ps1\"", returnStatus: true, returnStdout: true)
+        script {
+          def file = "\"${WORKSPACE}\\start.ps1\""
+          powershell(script: ${file}, returnStatus: true, returnStdout: true)
+        }
+
       }
     }
   }
