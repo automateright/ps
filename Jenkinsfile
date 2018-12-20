@@ -4,7 +4,7 @@ pipeline {
     stage('Init') {
       steps {
         echo 'Initializing Pipeline'
-        echo 'Workspace:'
+        echo 'Workspace:${WORKSPACE}'
       }
     }
     stage('Get Params') {
@@ -24,7 +24,7 @@ pipeline {
     stage('Run Powershell') {
       steps {
         echo 'Check Params'
-        powershell(script: '${workspace}\\start.ps1', returnStatus: true, returnStdout: true)
+        powershell(script: '${WORKSPACE}\\start.ps1', returnStatus: true, returnStdout: true)
       }
     }
   }
