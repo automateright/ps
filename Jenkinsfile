@@ -30,11 +30,12 @@ pipeline {
     }
     stage('Run Powershell') {
       steps {
-        echo 'Check Params'
+        echo 'Run PowerShell'
         script {
-          def file = "\"${WORKSPACE}\\start.ps1\""
+          def file = "\"${WORKSPACE}\\Automation-Module.psm1\""
           echo "${file}"
-          powershell(script: "${file}", returnStatus: true, returnStdout: true)
+          powershell(script: "Import-Module ${file}", returnStatus: true, returnStdout: true)
+          powershell(script: "Ping-Localhost", returnStatus: true, returnStdout: true)
         }
 
       }
