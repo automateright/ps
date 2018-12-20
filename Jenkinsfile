@@ -1,4 +1,3 @@
-import groovy.json.JsonSlurper
 pipeline {
   agent any
   stages {
@@ -18,7 +17,7 @@ pipeline {
         stage('APICall') {
           steps {
             echo 'API Call'
-            httpRequest(url: 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570', acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET', responseHandle: 'STRING', validResponseCodes: '200')
+            httpRequest(url: 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570', acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'GET', responseHandle: 'STRING', validResponseCodes: '200', outputFile: 'response.txt')
           }
         }
       }
