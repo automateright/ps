@@ -15,7 +15,7 @@ pipeline {
             script {
               def name = 'Guillaume' // a plain string
               def greeting = "Hello ${name}"
-              assert greeting.toString() == 'Hello Guillaume'
+              echo greeting
             }
 
           }
