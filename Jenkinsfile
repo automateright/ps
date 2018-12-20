@@ -20,9 +20,10 @@ pipeline {
         }
       }
     }
-    stage('error') {
+    stage('Run Powershell') {
       steps {
         echo 'Check Params'
+        powershell(script: 'testps.ps1', returnStatus: true, returnStdout: true)
       }
     }
   }
