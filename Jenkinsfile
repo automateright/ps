@@ -6,7 +6,7 @@ pipeline {
         echo 'Initializing Pipeline'
       }
     }
-    stage('') {
+    stage('Get Params') {
       steps {
         powershell(returnStatus: true, returnStdout: true, script: 'Write-Host "hello world"')
       }
