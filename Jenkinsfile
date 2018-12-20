@@ -34,7 +34,7 @@ pipeline {
         script {
           def file = "\"${WORKSPACE}\\start.ps1\""
           echo "${file}"
-          def stat0 = powershell(script: "Import-Module ${file}", returnStatus: true, returnStdout: true)
+          def stat0 = powershell(script: "${file}", returnStatus: true, returnStdout: true)
           echo "stat0: ${stat0}"
 
           def file2 = "\"${WORKSPACE}\\Automation-Module.psm1\""
