@@ -32,11 +32,17 @@ pipeline {
       steps {
         echo 'Run PowerShell'
         script {
-          def file = "\"${WORKSPACE}\\Automation-Module.psm1\""
+          def file = "\"${WORKSPACE}\\start.ps1\""
           echo "${file}"
-          def stat = powershell(script: "Import-Module ${file}", returnStatus: true, returnStdout: true)
+          def stat0 = powershell(script: "Import-Module ${file}", returnStatus: true, returnStdout: true)
+          echo "stat0: ${stat0}"
+
+          def file2 = "\"${WORKSPACE}\\Automation-Module.psm1\""
+          echo "${file2}"
+          def stat = powershell(script: "Import-Module ${file2}", returnStatus: true, returnStdout: true)
           echo "stat: ${stat}"
-          powershell(script: "Ping-Localhost", returnStatus: true, returnStdout: true)
+          def stat2 = powershell(script: "Ping-Localhost", returnStatus: true, returnStdout: true)
+          echo "stat2: ${stat2}"
         }
 
       }
