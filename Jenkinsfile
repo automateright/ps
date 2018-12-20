@@ -16,7 +16,7 @@ pipeline {
         }
         stage('APICall') {
           steps {
-
+            echo 'API Call'
           }
         }
       }
