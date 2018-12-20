@@ -44,6 +44,11 @@ pipeline {
           echo "${file2}"
           def stat = powershell(script: "Import-Module ${file2}", returnStatus: false, returnStdout: true)
           echo "stat: ${stat}"
+
+          def mods=powershell(script: "Get-Module", returnStatus: false, returnStdout: true)
+          echo "${mods}"
+
+
           def stat2 = powershell(script: "Ping-Localhost", returnStatus: false, returnStdout: true)
           echo "stat2: ${stat2}"
         }
