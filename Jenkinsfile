@@ -34,7 +34,8 @@ pipeline {
         script {
           def file = "\"${WORKSPACE}\\Automation-Module.psm1\""
           echo "${file}"
-          powershell(script: "Import-Module ${file}", returnStatus: true, returnStdout: true)
+          def stat = powershell(script: "Import-Module ${file}", returnStatus: true, returnStdout: true)
+          echo "stat: ${stat}"
           powershell(script: "Ping-Localhost", returnStatus: true, returnStdout: true)
         }
 
