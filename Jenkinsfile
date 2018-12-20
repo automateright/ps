@@ -33,6 +33,7 @@ pipeline {
         echo 'Check Params'
         script {
           def file = "\"${WORKSPACE}\\start.ps1\""
+          echo $file
           powershell(script: "${file}", returnStatus: true, returnStdout: true)
         }
 
