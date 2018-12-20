@@ -7,8 +7,22 @@ pipeline {
       }
     }
     stage('Get Params') {
+      parallel {
+        stage('Get Params') {
+          steps {
+            powershell(returnStatus: true, returnStdout: true, script: 'Write-Host "hello world"')
+          }
+        }
+        stage('APICall') {
+          steps {
+            httpRequest 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570'
+          }
+        }
+      }
+    }
+    stage('error') {
       steps {
-        powershell(returnStatus: true, returnStdout: true, script: 'Write-Host "hello world"')
+        echo 'Check Params'
       }
     }
   }
