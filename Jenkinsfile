@@ -4,6 +4,7 @@ pipeline {
     stage('Init') {
       steps {
         echo 'Initializing Pipeline'
+        echo ${workspace}
       }
     }
     stage('Get Params') {
@@ -29,12 +30,6 @@ pipeline {
       steps {
         echo 'Check Params'
         powershell(script: '${workspace}\\start.ps1', returnStatus: true, returnStdout: true)
-      }
-    }
-    stage('Powershell'){
-      steps {
-        powershell -command Import-Module C:\Script\Automation-Module.psm1
-        powershell -command Ping-Localhost ${json.data}   
       }
     }
   }
