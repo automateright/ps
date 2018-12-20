@@ -25,7 +25,9 @@ pipeline {
     stage('Run Powershell') {
       steps {
         echo 'Check Params'
-        powershell(script: "'${WORKSPACE}start.ps1'", returnStatus: true, returnStdout: true)
+        echo "${WORKSPACE}start.ps1"
+        echo "${file}"
+        powershell(script: "${file}", returnStatus: true, returnStdout: true)
       }
     }
   }
