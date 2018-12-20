@@ -15,7 +15,7 @@ pipeline {
         }
         stage('APICall') {
           steps {
-            httpRequest 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570'
+            httpRequest(url: 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570', acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET', responseHandle: 'STRING')
           }
         }
       }
