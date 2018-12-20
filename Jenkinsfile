@@ -4,7 +4,7 @@ pipeline {
     stage('Init') {
       steps {
         echo 'Initializing Pipeline'
-        echo 'Workspace:' ${workspace}
+        echo 'Workspace:'
       }
     }
     stage('Get Params') {
