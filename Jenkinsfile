@@ -16,13 +16,7 @@ pipeline {
         }
         stage('APICall') {
           steps {
-            import groovy.json.JsonSlurper
-            def response = httpRequest(url: 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570', acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET', responseHandle: 'STRING')
-            println("Status: "+response.status)
-            println("Content: "+response.content)
-            def json = new JsonSlurper().parseText(response.content)
-            assert json instanceof Map
-            echo "EnvName: ${json.data.env.name}"
+
           }
         }
       }
