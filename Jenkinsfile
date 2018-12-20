@@ -42,7 +42,7 @@ pipeline {
 
           def file2 = "\"${WORKSPACE}\\Automation-Module.psm1\""
           echo "${file2}"
-          def stat = powershell(script: "Import-Module ${file2}", returnStatus: false, returnStdout: true)
+          def stat = powershell(script: "Import-Module -Name ${file2} -Verbose", returnStatus: false, returnStdout: true)
           echo "stat: ${stat}"
 
           def mods=powershell(script: "Get-Module", returnStatus: false, returnStdout: true)
