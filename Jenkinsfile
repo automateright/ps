@@ -22,7 +22,7 @@ pipeline {
         stage('PS') {
           steps {
             script {
-              def file2 = "\"${WORKSPACE}\\Ping-Something.ps1\""
+              def file2 = "\"${WORKSPACE}\\Automation-Module.psm1\""
               echo "${file2}"
               def stat = powershell(script: "Install-Module ${file2}", returnStatus: false, returnStdout: true)
               echo "stat: ${stat}"
