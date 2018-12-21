@@ -1,2 +1,3 @@
 Write-Output "We're here!!"
-Ping localhost | Write-Outpu
+Ping localhost | Write-Output
+echo "echoing"
