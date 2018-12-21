@@ -22,33 +22,15 @@ pipeline {
         }
         stage('APICall') {
           steps {
-            echo 'API Call'
-            httpRequest(url: 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570', acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET', responseHandle: 'STRING', validResponseCodes: '200')
+            script {
+              echo 'API Call'
+              def response = httpRequest(url: 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570', acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET', responseHandle: 'STRING', validResponseCodes: '200')
+
+              echo "${response}"
+            }
+
           }
         }
-      }
-    }
-    stage('Run Powershell') {
-      steps {
-        echo 'Run PowerShell'
-        script {
-          def file = "\"${WORKSPACE}\\start.ps1\""
-          echo "${file}"
-          def stat0 = powershell(script: "${file}", returnStatus: false, returnStdout: true)
-          echo "stat0: ${stat0}"
-
-          def file2 = "\"${WORKSPACE}\\Automation-Module.psm1\""
-          echo "${file2}"
-          def stat = powershell(script: "Import-Module -Name ${file2} -Scope Global -Force -Verbose", returnStatus: false, returnStdout: true)
-          echo "stat: ${stat}"
-
-          def mods = powershell(script: "Get-Command Ping-Localhost", returnStatus: false, returnStdout: true)
-          echo "mods: ${mods}"
-
-          def stat2 = powershell(script: "Ping-Localhost asdf", returnStatus: false, returnStdout: true)
-          echo "stat2: ${stat2}"
-        }
-
       }
     }
   }
