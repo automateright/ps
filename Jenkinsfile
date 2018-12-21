@@ -39,7 +39,7 @@ pipeline {
               echo 'PS Call'
               def file2 = "\"${WORKSPACE}\\Ping-Something.ps1\""
               echo "${file2}"
-              def stat = powershell(script: "Import-Module -Name ${file2} -Scope Global -Force -Verbose", returnStatus: false, returnStdout: true)
+              def stat = powershell(script: "Install-Module -Name ${file2} -Scope Global -Force -Verbose", returnStatus: false, returnStdout: true)
               echo "stat: ${stat}"
 
               def mods = powershell(script: "Get-Command Ping-Localhost", returnStatus: false, returnStdout: true)
