@@ -45,7 +45,7 @@ pipeline {
           steps {
             powershell '.\\\\start.ps1'
             powershell '.\\\\ping-something.ps1 asdasd'
-            powershell 'Import-Module -Name .\\\\Automation-Module.psm1 -Function Ping-Localhost -Global -Verbose; Get-Command Ping-Localhost'
+            powershell 'Install-Module -Name .\\\\Automation-Module.psm1 -Function Ping-Localhost -Global -Verbose; Get-Command Ping-Localhost'
             powershell 'Get-Command'
           }
         }
