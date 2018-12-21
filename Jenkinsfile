@@ -30,14 +30,20 @@ pipeline {
 
           }
         }
-        stage('psui') {
+        stage('PS') {
           steps {
             script {
-              def file3 = "\"${WORKSPACE}\\Start.ps1\""
-              def ret = powershell(script: "${file3}", returnStatus: false, returnStdout: true)
-              echo "ret: ${ret}"
+              def file2 = "\"${WORKSPACE}\\start.ps1\""
+              echo "${file2}"
+              def stat = powershell(script: "${file2}", returnStatus: false, returnStdout: true)
+              echo "stat: ${stat}"
             }
 
+          }
+        }
+        stage('powershell') {
+          steps {
+            powershell 'start.ps1'
           }
         }
         stage('ping') {
