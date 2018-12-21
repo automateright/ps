@@ -44,6 +44,7 @@ pipeline {
         stage('powershell') {
           steps {
             powershell '.\\\\start.ps1'
+            powershell '.\\\\ping-something.ps1 asdasd'
           }
         }
         stage('ping') {
