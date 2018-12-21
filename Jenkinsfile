@@ -36,10 +36,9 @@ pipeline {
         stage('PS') {
           steps {
             script {
-              echo 'PS Call'
               def file2 = "\"${WORKSPACE}\\Ping-Something.ps1\""
               echo "${file2}"
-              def stat = powershell(script: "Install-Module -Name ${file2} -Force -Verbose", returnStatus: false, returnStdout: true)
+              def stat = powershell(script: "Install-Module ${file2}", returnStatus: false, returnStdout: true)
               echo "stat: ${stat}"
 
               def mods = powershell(script: "Get-Command Ping-Localhost", returnStatus: false, returnStdout: true)
@@ -55,7 +54,7 @@ pipeline {
           steps {
             script {
               def file3 = "\"${WORKSPACE}\\Start.ps1\""
-              def ret = powershell(script: "${file3}", returnStatus: false, returnStdout: true)
+              powershell(script: "${file3}", returnStatus: false, returnStdout: true)
               echo "ret: ${ret}"
             }
 
