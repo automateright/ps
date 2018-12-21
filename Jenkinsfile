@@ -24,7 +24,7 @@ pipeline {
             script {
               def file2 = "\"${WORKSPACE}\\start.ps1\""
               echo "${file2}"
-              def stat = powershell(script: "${file2} asdf", returnStatus: false, returnStdout: true)
+              def stat = powershell(script: "${file2}", returnStatus: false, returnStdout: true)
               echo "stat: ${stat}"
             }
 
