@@ -8,11 +8,11 @@ function Ping-Localhost {
 
     process {
     
-        Write-Host $Settings.env.name '  ----  Start '$PSCmdlet.MyInvocation.MyCommand.Name ' ================='
+        Write-Output $Settings.env.name '  ----  Start '$PSCmdlet.MyInvocation.MyCommand.Name ' ================='
 
-        ping localhost
+        ping localhost | Write-Output
 
-        Write-Host $Settings.env.name '  ----  End '$PSCmdlet.MyInvocation.MyCommand.Name ' ================='
+        Write-Output $Settings.env.name '  ----  End '$PSCmdlet.MyInvocation.MyCommand.Name ' ================='
 
     }
     
