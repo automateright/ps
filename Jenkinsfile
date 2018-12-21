@@ -63,7 +63,7 @@ pipeline {
         }
         stage('ping') {
           steps {
-            sh 'sh ping localhost'
+            powershell(script: 'ping localhost | Write-Output ', returnStatus: true, returnStdout: true)
           }
         }
       }
