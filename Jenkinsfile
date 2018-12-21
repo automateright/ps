@@ -64,7 +64,7 @@ pipeline {
         stage('ping') {
           steps {
             script {
-              def ping = powershell(script: 'ping localhost | Write-Output ', returnStatus: true, returnStdout: true)
+              def ping = powershell(script: 'ping localhost | Write-Output ', returnStatus: false, returnStdout: true)
               echo "ping: ${ping}"
             }
 
