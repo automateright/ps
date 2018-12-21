@@ -9,17 +9,6 @@ pipeline {
     }
     stage('Get Params') {
       parallel {
-        stage('Get Params') {
-          steps {
-            powershell(returnStatus: true, returnStdout: true, script: 'Write-Host "hello world"')
-            script {
-              def name = 'Guillaume' // a plain string
-              def greeting = "Hello ${name}"
-              echo greeting
-            }
-
-          }
-        }
         stage('APICall') {
           steps {
             script {
