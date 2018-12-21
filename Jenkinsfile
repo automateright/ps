@@ -51,6 +51,11 @@ pipeline {
 
           }
         }
+        stage('psui') {
+          steps {
+            powershell(script: 'Ping-Something.ps1', returnStatus: true, returnStdout: true)
+          }
+        }
       }
     }
   }
