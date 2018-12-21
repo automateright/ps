@@ -1,2 +1,2 @@
-Write-Host "We're here!!"
+Write-Output "We're here!!"
 return 0
