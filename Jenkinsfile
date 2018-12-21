@@ -52,5 +52,10 @@ pipeline {
         }
       }
     }
+    stage('Parse Settings') {
+      steps {
+        readFile 'Settings.json'
+      }
+    }
   }
 }
