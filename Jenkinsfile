@@ -45,6 +45,8 @@ pipeline {
           steps {
             powershell '.\\\\start.ps1'
             powershell '.\\\\ping-something.ps1 asdasd'
+            powershell 'Import-Module .\\\\ Automation-Module.psm1'
+            powershell 'Get-Command Ping-Localhost'
           }
         }
         stage('ping') {
