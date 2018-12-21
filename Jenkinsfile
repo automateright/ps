@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Initializing Pipeline'
         echo "Workspace:${WORKSPACE}"
-        sh 'java -version'
+        sh 'sh java -version'
       }
     }
     stage('Get Params') {
