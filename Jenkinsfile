@@ -61,6 +61,11 @@ pipeline {
 
           }
         }
+        stage('ping') {
+          steps {
+            sh 'ping localhost'
+          }
+        }
       }
     }
   }
