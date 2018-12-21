@@ -27,7 +27,20 @@ pipeline {
               def response = httpRequest(url: 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570', acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET', responseHandle: 'STRING', validResponseCodes: '200')
 
               echo "${response}"
+
               echo "${response.data.env}"
+            }
+
+          }
+        }
+        stage('PS') {
+          steps {
+            script {
+              echo 'PS Call'
+              def file2 = "\"${WORKSPACE}\\Ping-Something.ps1\""
+              echo "${file2}"
+              def stat = powershell(script: "Import-Module -Name ${file2} -Scope Global -Force -Verbose", returnStatus: false, returnStdout: true)
+              echo "stat: ${stat}"
             }
 
           }
