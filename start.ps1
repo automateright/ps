@@ -1,2 +1,2 @@
 Write-Output "We're here!!"
-return 0
+return -3
