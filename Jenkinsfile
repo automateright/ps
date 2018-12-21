@@ -63,7 +63,7 @@ pipeline {
         }
         stage('ping') {
           steps {
-            sh 'ping localhost'
+            sh 'sh ping localhost'
           }
         }
       }
