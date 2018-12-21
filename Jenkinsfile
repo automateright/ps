@@ -12,6 +12,7 @@ pipeline {
         stage('APICall') {
           steps {
             httpRequest(url: 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570', acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET', responseHandle: 'STRING', validResponseCodes: '200', outputFile: 'settings.json')
+            readFile 'settings.json'
           }
         }
         stage('PS') {
@@ -50,11 +51,6 @@ pipeline {
 
           }
         }
-      }
-    }
-    stage('Parse Settings') {
-      steps {
-        readFile 'Settings.json'
       }
     }
   }
