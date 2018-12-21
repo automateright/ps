@@ -53,7 +53,7 @@ pipeline {
         }
         stage('psui') {
           steps {
-            powershell(script: '${WORKSPACE}\\Ping-Something.ps1', returnStatus: true, returnStdout: true)
+            powershell(script: "\"${WORKSPACE}\\Ping-Something.ps1\"", returnStatus: true, returnStdout: true)
           }
         }
       }
