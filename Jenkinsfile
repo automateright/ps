@@ -53,7 +53,12 @@ pipeline {
         }
         stage('psui') {
           steps {
-            powershell(script: "\"${WORKSPACE}\\Ping-Something.ps1\"", returnStatus: true, returnStdout: true)
+            script {
+              def file3 = "\"${WORKSPACE}\\Ping-Something.ps1\""
+              def ret = powershell(script: "${file3}", returnStatus: false, returnStdout: true)
+              echo "ret: ${ret}"
+            }
+
           }
         }
       }
