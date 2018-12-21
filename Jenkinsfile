@@ -55,7 +55,7 @@ pipeline {
           steps {
             script {
               def file3 = "\"${WORKSPACE}\\Start.ps1\""
-              def ret = powershell(script: "${file3}", returnStatus: false, returnStdout: true)
+              def ret = powershell(script: "${file3}", returnStatus: true, returnStdout: true)
               echo "ret: ${ret}"
             }
 
