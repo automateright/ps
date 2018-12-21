@@ -22,16 +22,10 @@ pipeline {
         stage('PS') {
           steps {
             script {
-              def file2 = "\"${WORKSPACE}\\Automation-Module.psm1\""
+              def file2 = "\"${WORKSPACE}\\start.ps1\""
               echo "${file2}"
-              def stat = powershell(script: "Install-Module ${file2} -Force -Scope CurrentUser -Verbose", returnStatus: false, returnStdout: true)
+              def stat = powershell(script: "-File ${file2} asdf", returnStatus: false, returnStdout: true)
               echo "stat: ${stat}"
-
-              def mods = powershell(script: "Get-Command Ping-Localhost", returnStatus: false, returnStdout: true)
-              echo "mods: ${mods}"
-
-              def stat2 = powershell(script: "Ping-Localhost asdf", returnStatus: false, returnStdout: true)
-              echo "stat2: ${stat2}"
             }
 
           }
