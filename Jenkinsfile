@@ -5,7 +5,6 @@ pipeline {
       steps {
         echo 'Initializing Pipeline'
         echo "Workspace:${WORKSPACE}"
-        input(message: 'Need input to get started', id: 'ejm1', submitter: 'ok', submitterParameter: '531.137')
       }
     }
     stage('Interactive_Input') {
