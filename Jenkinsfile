@@ -79,5 +79,21 @@ pipeline {
         }
       }
     }
+    stage('Closing') {
+      parallel {
+        stage('Stage 1 closing') {
+          steps {
+            echo 'Initializing Pipeline'
+            echo "Workspace:${WORKSPACE}"
+          }
+        }
+        stage('Stage 2 closing') {
+          steps {
+            echo 'Initializing Pipeline'
+            echo "Workspace:${WORKSPACE}"
+          }
+        }
+      }
+    }
   }
 }
