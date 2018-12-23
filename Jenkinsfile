@@ -46,6 +46,23 @@ pipeline {
 
         }
       }
+      stage('Copy Files') {
+        parallel {
+          stage('qa1') {
+            steps {
+              echo 'Initializing Pipeline'
+              echo "Workspace:${WORKSPACE}"
+              powershell(script: 'Copy-File \\\\vengauto1\\scripts\\automation-Module.psm1 .', returnStatus: true, returnStdout: true)
+            }
+          }
+          stage('qa 2') {
+            steps {
+              echo 'Initializing Pipeline'
+              echo "Workspace:${WORKSPACE}"
+            }
+          }
+        }
+      }
       stage('Checking Environment') {
         parallel {
           stage('Stage 1') {
