@@ -77,23 +77,7 @@ pipeline {
 
           }
         }
-      }
-     stage('Closing Up') {
-      parallel {
-        stage('Stage 1') {
-          steps {
-            echo 'Initializing Pipeline'
-            echo "Workspace:${WORKSPACE}"
-          }
-        }
-        stage('Stage 2') {
-          steps {
-            echo 'Initializing Pipeline'
-            echo "Workspace:${WORKSPACE}"
-          }
-        }
-      }
-    }
+      } //parallel
     }
   }
 }
