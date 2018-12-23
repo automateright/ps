@@ -35,7 +35,7 @@ pipeline {
 
           }
         }
-        stage('PS') {
+        stage('stage a') {
           steps {
             script {
               def file2 = "\"${WORKSPACE}\\start.ps1\""
@@ -46,7 +46,7 @@ pipeline {
 
           }
         }
-        stage('PS') {
+        stage('stage b') {
           steps {
             script {
               def file2 = "\"${WORKSPACE}\\start.ps1\""
