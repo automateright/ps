@@ -15,15 +15,18 @@ pipeline {
 
           // Get the input
           def userInput = input(
-            id: 'userInput', message: 'Enter path of test reports:?',
+            id: 'userInput', message: 'Runtime Parameters:',
             parameters: [
 
-              string(defaultValue: 'None',
-              description: 'Path of config file',
-              name: 'Config'),
-              string(defaultValue: 'None',
-              description: 'Test Info file',
-              name: 'Test'),
+              string(defaultValue: '0',
+              description: 'Release',
+              name: 'Release'),
+              string(defaultValue: '0',
+              description: 'Build',
+              name: 'Settings'),
+              string(defaultValue: '5bc7606cb02e7c16941bf570',
+              description: 'Settings',
+              name: 'Settings')
             ])
 
             // Save to variables. Default to empty string if not found.
