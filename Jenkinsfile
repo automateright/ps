@@ -7,9 +7,25 @@ pipeline {
         echo "Workspace:${WORKSPACE}"
       }
     }
-    stage('Get Params') {
+    stage('Checking Environment') {
       parallel {
-        stage('APICall') {
+        stage('Stage 1') {
+          steps {
+            echo 'Initializing Pipeline'
+            echo "Workspace:${WORKSPACE}"
+          }
+        }
+        stage('Stage 2') {
+          steps {
+            echo 'Initializing Pipeline'
+            echo "Workspace:${WORKSPACE}"
+          }
+        }
+      }
+    }
+    stage('API Calls') {
+      parallel {
+        stage('Get Parms') {
           steps {
             script {
               httpRequest(url: 'http://vengauto1:3000/api/devops/settings/5bc7606cb02e7c16941bf570', acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'GET', responseHandle: 'STRING', validResponseCodes: '200', outputFile: 'settings.json')
