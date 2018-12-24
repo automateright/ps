@@ -139,7 +139,7 @@ pipeline {
       }
       stage('Start') {
         steps {
-          powershell 'ls'
+          echo 'start pipe2'
         }
       }
       stage('Invoke_pipeline') {
@@ -149,7 +149,7 @@ pipeline {
       }
       stage('End') {
         steps {
-          powershell 'ls'
+          echo 'end pipe2'
         }
       }
       stage('Closing') {
