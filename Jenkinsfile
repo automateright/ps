@@ -144,7 +144,7 @@ pipeline {
       }
       stage('Invoke_pipeline') {
         steps {
-          build 'mypipe2/master'
+          echo 'running pipe2'
         }
       }
       stage('End') {
