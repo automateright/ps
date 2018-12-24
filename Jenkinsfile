@@ -144,31 +144,29 @@ pipeline {
       }
       stage('Invoke_pipeline') {
         steps {
-          build(job: 'mypipe2', parameters: [
-                                                          string(name: 'param1', value: "value1")
-                                                        ])
-          }
+          build 'mypipe2'
         }
-        stage('End') {
-          steps {
-            powershell 'ls'
-          }
+      }
+      stage('End') {
+        steps {
+          powershell 'ls'
         }
-        stage('Closing') {
-          parallel {
-            stage('Stage 1 closing') {
-              steps {
-                echo 'Initializing Pipeline'
-                echo "Workspace:${WORKSPACE}"
-              }
+      }
+      stage('Closing') {
+        parallel {
+          stage('Stage 1 closing') {
+            steps {
+              echo 'Initializing Pipeline'
+              echo "Workspace:${WORKSPACE}"
             }
-            stage('Stage 2 closing') {
-              steps {
-                echo 'Initializing Pipeline'
-                echo "Workspace:${WORKSPACE}"
-              }
+          }
+          stage('Stage 2 closing') {
+            steps {
+              echo 'Initializing Pipeline'
+              echo "Workspace:${WORKSPACE}"
             }
           }
         }
       }
     }
+  }
