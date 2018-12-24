@@ -164,6 +164,8 @@ pipeline {
             steps {
               echo 'Initializing Pipeline'
               echo "Workspace:${WORKSPACE}"
+              myFunction()
+              myFunction()
             }
           }
         }
