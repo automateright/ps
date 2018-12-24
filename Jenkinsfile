@@ -52,8 +52,8 @@ pipeline {
             steps {
               echo 'Initializing Pipeline'
               echo "Workspace:${WORKSPACE}"
-              powershell(script: 'cp \\\\vengauto1\\scripts\\Automation-Module.psm1 .ile1.txt', returnStatus: true, returnStdout: true)
-              powershell(script: 'cp \\\\vengauto1\\scripts\\Automation-Module.psm1 .ile2.txt', returnStatus: true, returnStdout: true)
+              powershell(script: 'cp \\\\vengauto1\\scripts\\Automation-Module.psm1 File1.txt', returnStatus: true, returnStdout: true)
+              powershell(script: 'cp \\\\vengauto1\\scripts\\Automation-Module.psm1 File2.txt', returnStatus: true, returnStdout: true)
             }
           }
           stage('qa 2') {
