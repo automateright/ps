@@ -137,21 +137,38 @@ pipeline {
           }
         }
       }
-      stage('Closing') {
-        parallel {
-          stage('Stage 1 closing') {
-            steps {
-              echo 'Initializing Pipeline'
-              echo "Workspace:${WORKSPACE}"
-            }
+      stage('Start') {
+        steps {
+          sh 'ls'
+        }
+      }
+      stage('Invoke_pipeline') {
+        steps {
+          build(job: 'pipeline1', parameters: [
+                      string(name: 'param1', value: "value1")
+                    ])
           }
-          stage('Stage 2 closing') {
-            steps {
-              echo 'Initializing Pipeline'
-              echo "Workspace:${WORKSPACE}"
+        }
+        stage('End') {
+          steps {
+            sh 'ls'
+          }
+        }
+        stage('Closing') {
+          parallel {
+            stage('Stage 1 closing') {
+              steps {
+                echo 'Initializing Pipeline'
+                echo "Workspace:${WORKSPACE}"
+              }
+            }
+            stage('Stage 2 closing') {
+              steps {
+                echo 'Initializing Pipeline'
+                echo "Workspace:${WORKSPACE}"
+              }
             }
           }
         }
       }
     }
-  }
